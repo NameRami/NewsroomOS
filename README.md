@@ -282,9 +282,6 @@ NewsroomOS utilise une architecture **Frontend / Backend / Database**.
 ```text
 NewsroomOS/
 │
-├── .github/
-│   └── workflows/
-│       └── ci.yml
 │
 ├── docs/
 │   └── screenshots/
