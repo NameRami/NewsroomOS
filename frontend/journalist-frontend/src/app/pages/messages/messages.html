@@ -1,0 +1,151 @@
+<!-- messages.html — Editorial messaging layout -->
+<div class="messages-page">
+
+  <!-- Page header -->
+  <div class="messages-masthead">
+    <div class="t-subhead">Secure Dispatch</div>
+    <div class="rule-accent-sm"></div>
+    <h1 class="messages-title">Direct Messages</h1>
+  </div>
+
+  <div class="rule-thick"></div>
+
+  <div class="messages-layout">
+
+    <!-- Sidebar: threads + search -->
+    <aside class="msg-sidebar surface">
+
+      <!-- Recent threads -->
+      <div class="sidebar-section">
+        <div class="sidebar-section-head">
+          <span class="t-subhead">Recent conversations</span>
+          <button class="btn-icon" type="button" (click)="loadThreads()" title="Refresh">↺</button>
+        </div>
+
+        <div class="loading-inline" *ngIf="threadsLoading">
+          <div class="loading-dots"><span></span><span></span><span></span></div>
+          <span class="t-byline">Loading…</span>
+        </div>
+
+        <div class="empty-state" *ngIf="!threadsLoading && threads.length === 0">
+          <span class="t-byline">No conversations yet.</span>
+        </div>
+
+        <div class="threads-list" *ngIf="threads.length">
+          <button
+            class="thread-item"
+            *ngFor="let t of threads"
+            (click)="selectThread(t)"
+            [class.thread-item--active]="selected?._id === t.user._id"
+          >
+            <div class="thread-avatar">{{ t.user.name[0].toUpperCase() }}</div>
+            <div class="thread-body">
+              <div class="thread-top">
+                <span class="thread-name">{{ t.user.name }}</span>
+                <span class="thread-time t-byline">{{ t.lastMessage.createdAt | date: 'shortTime' }}</span>
+              </div>
+              <div class="thread-preview">{{ t.lastMessage.body }}</div>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <div class="sidebar-rule"></div>
+
+      <!-- Search -->
+      <div class="sidebar-section">
+        <div class="t-subhead" style="margin-bottom: var(--s-3)">Find a journalist</div>
+        <div class="search-wrap">
+          <span class="search-icon">⊕</span>
+          <input class="input search-input" [(ngModel)]="query" (input)="search()" placeholder="Name or email…" />
+        </div>
+
+        <div class="results-list" *ngIf="results.length">
+          <button class="result-item" *ngFor="let u of results" (click)="selectUser(u)">
+            <div class="result-avatar">{{ u.name[0].toUpperCase() }}</div>
+            <div>
+              <div class="result-name">{{ u.name }}</div>
+              <div class="result-email t-byline">{{ u.email }}</div>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <div class="error" *ngIf="error">
+        <span class="error-icon">!</span> {{ error }}
+      </div>
+
+      <a class="back-link" routerLink="/feed">← Back to Feed</a>
+    </aside>
+
+    <!-- Main conversation panel -->
+    <section class="msg-main surface" *ngIf="selected; else emptyMain">
+
+      <!-- Conversation header -->
+      <div class="conv-header">
+        <div class="conv-header-left">
+          <div class="conv-avatar">{{ selected.name[0].toUpperCase() }}</div>
+          <div>
+            <div class="conv-name">{{ selected.name }}</div>
+            <div class="conv-email t-byline">{{ selected.email }}</div>
+          </div>
+        </div>
+        <div class="badge badge-accent">● Live</div>
+      </div>
+
+      <div class="conv-rule"></div>
+
+      <!-- Messages thread -->
+      <div class="conv-thread" #scrollTarget>
+        <div class="conv-empty" *ngIf="conversation.length === 0">
+          <div class="conv-empty-icon">◉</div>
+          <div class="t-byline">Start the conversation with {{ selected.name }}</div>
+        </div>
+
+        <div
+          *ngFor="let m of conversation"
+          class="bubble"
+          [class.bubble--mine]="isMine(m)"
+          [class.bubble--optimistic]="m.__optimistic"
+        >
+          <div class="bubble-meta">
+            <span class="bubble-author">{{ m.from?.name }}</span>
+            <span class="bubble-sep">·</span>
+            <span class="t-byline">{{ m.createdAt | date: 'shortTime' }}</span>
+            <span class="badge" *ngIf="m.__optimistic" style="margin-left: 4px">sending</span>
+          </div>
+          <div class="bubble-body">{{ m.body }}</div>
+        </div>
+      </div>
+
+      <!-- Composer -->
+      <div class="conv-composer">
+        <textarea
+          [(ngModel)]="body"
+          rows="2"
+          placeholder="Write a dispatch to {{ selected.name }}…"
+          (keydown.meta.enter)="send()"
+          (keydown.ctrl.enter)="send()"
+        ></textarea>
+        <div class="conv-composer-actions">
+          <span class="t-byline" style="color: var(--text-ghost)">⌘↵ to send</span>
+          <button class="btn btn-accent" type="button" (click)="send()" [disabled]="!body.trim()">
+            Send
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Empty state -->
+    <ng-template #emptyMain>
+      <section class="msg-main surface msg-empty">
+        <div class="empty-hero">
+          <div class="empty-icon">◉</div>
+          <h2 class="empty-title">Select a conversation</h2>
+          <p class="empty-sub t-byline">Choose a recent thread or search for a journalist to start a secure dispatch.</p>
+        </div>
+      </section>
+    </ng-template>
+
+  </div>
+</div>

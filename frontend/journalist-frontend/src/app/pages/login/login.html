@@ -1,0 +1,98 @@
+<!-- login.html — Editorial split: broadsheet left / form right -->
+<div class="auth-page">
+
+  <!-- Left: masthead cover -->
+  <aside class="auth-cover">
+    <div class="cover-content">
+      <div class="cover-edition t-subhead">Est. 2024 · Secure Edition</div>
+
+      <div class="cover-rule-thick"></div>
+
+      <h1 class="cover-headline">
+        The Network<br>
+        Built for the<br>
+        <em>Fourth Estate</em>
+      </h1>
+
+      <div class="cover-rule"></div>
+
+      <p class="cover-deck">
+        A private social platform for working journalists. Share breaking insights, source tips, and coordinate stories — entirely encrypted, identity-verified.
+      </p>
+
+      <div class="cover-features">
+        <div class="cover-feature">
+          <span class="feature-icon">◈</span>
+          <div>
+            <div class="feature-name">Feed-first publishing</div>
+            <div class="feature-desc">Rapid updates, sourced & timestamped</div>
+          </div>
+        </div>
+        <div class="cover-feature">
+          <span class="feature-icon">◉</span>
+          <div>
+            <div class="feature-name">Direct messaging</div>
+            <div class="feature-desc">Secure one-to-one newsroom coordination</div>
+          </div>
+        </div>
+        <div class="cover-feature">
+          <span class="feature-icon">◆</span>
+          <div>
+            <div class="feature-name">JWT auth</div>
+            <div class="feature-desc">Verified identities, zero data brokers</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cover-rule"></div>
+      <div class="cover-footer t-byline">Members only · Application required</div>
+    </div>
+  </aside>
+
+  <!-- Right: form panel -->
+  <section class="auth-form-panel">
+    <div class="auth-form-inner">
+
+      <div class="form-header">
+        <div class="form-kicker t-subhead">{{ mode === 'login' ? 'Member access' : 'Request access' }}</div>
+        <div class="rule-thick-sm"></div>
+        <h2 class="form-title">{{ mode === 'login' ? 'Sign in to\nyour newsroom' : 'Create\nyour account' }}</h2>
+      </div>
+
+      <div class="stack" style="margin-top: var(--s-5);">
+        <div *ngIf="mode === 'signup'" class="field">
+          <label>Full name</label>
+          <input class="input" [(ngModel)]="name" placeholder="Jane Smith" autocomplete="name" />
+        </div>
+
+        <div class="field">
+          <label>Email address</label>
+          <input class="input" [(ngModel)]="email" type="email" placeholder="jane@outlet.com" autocomplete="email" />
+        </div>
+
+        <div class="field">
+          <label>Password</label>
+          <input class="input" [(ngModel)]="password" type="password" placeholder="••••••••••••" autocomplete="current-password" />
+        </div>
+
+        <div class="error" *ngIf="error">
+          <span class="error-icon">!</span> {{ error }}
+        </div>
+
+        <button class="btn btn-accent submit-btn" (click)="submit()" [disabled]="loading">
+          <span *ngIf="!loading">{{ mode === 'login' ? 'Enter the newsroom' : 'Create account' }}</span>
+          <span *ngIf="loading">Verifying…</span>
+        </button>
+
+        <div class="toggle-mode">
+          <span class="t-byline">{{ mode === 'login' ? 'New to the network?' : 'Already a member?' }}</span>
+          <button class="btn-link" (click)="toggleMode()">
+            {{ mode === 'login' ? 'Request access' : 'Sign in instead' }}
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>

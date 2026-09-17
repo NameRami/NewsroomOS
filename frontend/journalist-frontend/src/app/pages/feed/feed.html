@@ -1,0 +1,253 @@
+<div class="feed-page">
+
+  <div class="feed-masthead">
+    <div class="feed-masthead-left">
+      <div class="t-subhead">Newsroom Feed</div>
+      <div class="rule-accent-sm"></div>
+      <h1 class="feed-title">Latest Dispatches</h1>
+    </div>
+
+    <div class="feed-masthead-right">
+      <div class="user-card">
+        <ng-container *ngIf="user?.avatarUrl; else userInitialAvatar">
+          <img
+            class="user-avatar-img"
+            [src]="user.avatarUrl"
+            [alt]="user?.name || 'User'"
+          />
+        </ng-container>
+        <ng-template #userInitialAvatar>
+          <div class="user-avatar">{{ (user?.name || 'U')[0].toUpperCase() }}</div>
+        </ng-template>
+
+        <div class="user-info">
+          <div class="user-name">{{ user?.name }}</div>
+          <div class="user-email t-byline">{{ user?.email }}</div>
+        </div>
+      </div>
+
+      <div class="feed-actions">
+        <button class="btn btn-ghost" type="button" (click)="goMyProfile()">◆ My profile</button>
+        <button class="btn btn-ghost" type="button" (click)="goEditProfile()">✎ Edit profile</button>
+        <button class="btn btn-ghost" type="button" (click)="goMessages()">◉ Messages</button>
+        <button class="btn btn-danger" type="button" (click)="logout()">Sign out</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="rule-thick"></div>
+
+  <div class="feed-layout">
+    <div class="feed-main">
+
+      <div class="composer surface">
+        <div class="composer-header">
+          <span class="t-subhead">File a report</span>
+        </div>
+
+        <div class="composer-ai-box">
+          <label>Ask AI to draft a post</label>
+          <div class="composer-ai-row">
+            <input
+              class="input"
+              [(ngModel)]="aiPrompt"
+              maxlength="300"
+              placeholder="Example: benefits of AI for small businesses"
+            />
+            <button
+              class="btn btn-ghost"
+              type="button"
+              (click)="generateAiPost()"
+              [disabled]="generatingAi || !aiPrompt.trim()"
+            >
+              {{ generatingAi ? 'Generating…' : 'Generate with AI' }}
+            </button>
+          </div>
+        </div>
+
+        <div class="composer-body">
+          <ng-container *ngIf="user?.avatarUrl; else composerInitialAvatar">
+            <img
+              class="composer-avatar-img"
+              [src]="user.avatarUrl"
+              [alt]="user?.name || 'User'"
+            />
+          </ng-container>
+          <ng-template #composerInitialAvatar>
+            <div class="composer-avatar">{{ (user?.name || 'U')[0].toUpperCase() }}</div>
+          </ng-template>
+
+          <textarea
+            [(ngModel)]="newPost"
+            rows="4"
+            maxlength="2000"
+            placeholder="What's the story? Keep it factual, sourced, and concise…"
+          ></textarea>
+        </div>
+
+        <div class="composer-footer">
+          <div class="composer-hint t-byline">
+            <span>{{ newPost.length }}/2000</span>
+            <span>·</span>
+            <span>Keep it factual & sourced</span>
+          </div>
+          <button class="btn btn-accent" type="button" (click)="createPost()" [disabled]="!newPost.trim()">
+            Publish
+          </button>
+        </div>
+      </div>
+
+      <div class="error" *ngIf="error" style="margin-top: var(--s-3);">
+        <span class="error-icon">!</span> {{ error }}
+      </div>
+
+      <div class="feed-status" *ngIf="loading">
+        <div class="loading-dots">
+          <span></span><span></span><span></span>
+        </div>
+        <span class="t-byline">Fetching dispatches…</span>
+      </div>
+
+      <div class="feed-status" *ngIf="!loading && posts.length === 0">
+        <span class="t-byline">No dispatches yet. Be the first to file a report.</span>
+      </div>
+
+      <div class="posts-list" *ngIf="posts.length > 0">
+        <article
+          *ngFor="let p of posts; trackBy: trackById"
+          class="post surface"
+          [class.post--optimistic]="p.__optimistic"
+        >
+          <div class="post-meta">
+            <div class="post-author-row">
+              <ng-container *ngIf="p.author.avatarUrl; else postInitialAvatar">
+                <img
+                  class="post-avatar-img"
+                  [src]="p.author.avatarUrl"
+                  [alt]="p.author.name || 'User'"
+                />
+              </ng-container>
+              <ng-template #postInitialAvatar>
+                <div class="post-avatar">{{ (p.author.name || 'U')[0].toUpperCase() }}</div>
+              </ng-template>
+
+              <div class="post-author-info">
+                <button class="post-author-link" type="button" (click)="goProfile(p.author._id)">
+                  {{ p.author.name }}
+                </button>
+                <span class="post-dot">·</span>
+                <span class="post-time t-byline">{{ p.createdAt | date: 'MMM d, y · h:mm a' }}</span>
+              </div>
+            </div>
+
+            <div class="post-meta-right">
+              <span class="badge badge-accent" *ngIf="p.__optimistic">Filing…</span>
+
+              <div class="post-actions" *ngIf="isMyPost(p) && !p.__optimistic">
+                <button
+                  class="btn btn-ghost"
+                  type="button"
+                  *ngIf="editingPostId !== p._id"
+                  (click)="startEdit(p)">
+                  Edit
+                </button>
+
+                <button
+                  class="btn btn-danger"
+                  type="button"
+                  *ngIf="editingPostId !== p._id"
+                  (click)="deletePost(p)"
+                  [disabled]="deletingPostId === p._id">
+                  {{ deletingPostId === p._id ? 'Deleting…' : 'Delete' }}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="post-rule"></div>
+
+          <div class="post-content-block">
+            <ng-container *ngIf="editingPostId === p._id; else readMode">
+              <textarea
+                [(ngModel)]="editContent"
+                rows="4"
+                maxlength="2000"
+                placeholder="Edit your post..."
+              ></textarea>
+
+              <div class="post-edit-actions">
+                <button
+                  class="btn btn-accent"
+                  type="button"
+                  (click)="saveEdit(p)"
+                  [disabled]="savingEdit || !editContent.trim()">
+                  {{ savingEdit ? 'Saving…' : 'Save' }}
+                </button>
+
+                <button
+                  class="btn btn-ghost"
+                  type="button"
+                  (click)="cancelEdit()"
+                  [disabled]="savingEdit">
+                  Cancel
+                </button>
+              </div>
+            </ng-container>
+
+            <ng-template #readMode>
+              <p class="post-content" *ngIf="getTextWithoutUrl(p.content)">
+                {{ getTextWithoutUrl(p.content) }}
+              </p>
+
+              <ng-container *ngIf="extractUrl(p.content) as url">
+                <div class="post-embed" *ngIf="isYoutubeUrl(url); else normalLinkPreview">
+                  <iframe
+                    [src]="getYoutubeEmbedUrl(url)"
+                    width="100%"
+                    height="315"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+
+                <ng-template #normalLinkPreview>
+                  <a class="link-preview" [href]="url" target="_blank" rel="noopener noreferrer">
+                    <div class="link-preview-label">External link</div>
+                    <div class="link-preview-url">{{ url }}</div>
+                  </a>
+                </ng-template>
+              </ng-container>
+            </ng-template>
+          </div>
+        </article>
+      </div>
+
+    </div>
+
+    <aside class="feed-sidebar">
+      <div class="sidebar-widget surface card">
+        <div class="t-subhead" style="margin-bottom: var(--s-2)">Network</div>
+        <div class="rule-accent-sm"></div>
+        <div class="sidebar-stat">
+          <div class="stat-num">{{ posts.length }}</div>
+          <div class="stat-label t-byline">dispatches in feed</div>
+        </div>
+        <div class="rule"></div>
+        <div class="sidebar-tip">
+          <div class="t-subhead" style="margin-bottom: 6px">Editorial note</div>
+          <p class="sidebar-tip-text">All posts are visible to verified network members only. Cite your sources, protect your contacts.</p>
+        </div>
+      </div>
+
+      <div class="sidebar-widget surface card" style="margin-top: var(--s-4)">
+        <div class="t-subhead" style="margin-bottom: var(--s-2)">Quick links</div>
+        <div class="rule-accent-sm"></div>
+        <div class="sidebar-links">
+          <button class="sidebar-link" (click)="goMessages()">◉ Open messages</button>
+          <button class="sidebar-link" (click)="loadPosts()">↺ Refresh feed</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>

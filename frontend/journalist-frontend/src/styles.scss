@@ -1,0 +1,272 @@
+/* ============================================================
+   JOURNALIST SOCIAL — Global Styles
+   Aesthetic: Editorial Noir — ink & newsprint meets secure terminal
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+
+/* ── Design Tokens ─────────────────────────────────────────── */
+:root {
+  /* Palette — ink on newsprint */
+  --ink:          #0e0d0b;
+  --ink-2:        #1a1916;
+  --ink-3:        #252320;
+  --paper:        #f5f0e8;
+  --paper-2:      #ede7d9;
+  --paper-3:      #e2dace;
+
+  --accent:       #c8102e;   /* press-red */
+  --accent-2:     #e8a020;   /* gold byline */
+  --accent-muted: rgba(200, 16, 46, 0.15);
+
+  --text:         #0e0d0b;
+  --text-2:       #3d3a34;
+  --text-muted:   #7a7268;
+  --text-ghost:   #b0a898;
+
+  --border:       rgba(14, 13, 11, 0.12);
+  --border-dark:  rgba(14, 13, 11, 0.22);
+  --border-accent: rgba(200, 16, 46, 0.35);
+
+  /* Surfaces */
+  --surface:      #ffffff;
+  --surface-2:    #faf7f2;
+  --surface-raised: rgba(255,255,255,0.95);
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Crimson Pro', Georgia, serif;
+  --font-mono:    'DM Mono', 'Courier New', monospace;
+
+  /* Shadows */
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md:  0 4px 12px rgba(0,0,0,0.10), 0 2px 4px rgba(0,0,0,0.06);
+  --shadow-lg:  0 12px 40px rgba(0,0,0,0.13), 0 4px 12px rgba(0,0,0,0.07);
+  --shadow-xl:  0 24px 64px rgba(0,0,0,0.15), 0 8px 24px rgba(0,0,0,0.08);
+
+  /* Spacing scale */
+  --s-1:  4px;
+  --s-2:  8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  24px;
+  --s-6:  32px;
+  --s-7:  48px;
+  --s-8:  64px;
+
+  /* Radii */
+  --r-sm:  4px;
+  --r-md:  6px;
+  --r-lg:  10px;
+
+  --maxw: 1160px;
+}
+
+/* ── Base Reset ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--paper);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23f5f0e8'/%3E%3Crect x='0' y='0' width='1' height='1' fill='rgba(0,0,0,0.025)'/%3E%3C/svg%3E");
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Layout Helpers ─────────────────────────────────────────── */
+.container {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: var(--s-7) var(--s-5);
+}
+
+/* ── Rule lines (newspaper column dividers) ─────────────────── */
+.rule { height: 1px; background: var(--border-dark); margin: var(--s-5) 0; }
+.rule-thick { height: 3px; background: var(--ink); margin: var(--s-4) 0; }
+.rule-accent { height: 2px; background: var(--accent); margin: var(--s-4) 0; }
+
+/* ── Typography ─────────────────────────────────────────────── */
+.t-display {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.t-headline {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+.t-subhead {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.t-byline {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.t-body { font-family: var(--font-body); font-size: 17px; line-height: 1.65; }
+.t-muted { color: var(--text-muted); }
+
+/* ── Surfaces ───────────────────────────────────────────────── */
+.surface {
+  background: var(--surface);
+  border: 1px solid var(--border-dark);
+  box-shadow: var(--shadow-sm);
+}
+
+.card { padding: var(--s-5); }
+
+/* ── Inputs ─────────────────────────────────────────────────── */
+.input, textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1.5px solid var(--border-dark);
+  border-radius: var(--r-md);
+  padding: 10px 14px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  appearance: none;
+}
+.input:focus, textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-muted);
+}
+.input::placeholder, textarea::placeholder { color: var(--text-ghost); }
+
+label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+/* ── Buttons ────────────────────────────────────────────────── */
+.btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--r-md);
+  background: var(--ink);
+  color: var(--paper);
+  cursor: pointer;
+  transition: all 0.14s ease;
+  white-space: nowrap;
+}
+.btn:hover {
+  background: var(--ink-2);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+.btn:active { transform: translateY(0); }
+.btn[disabled] { opacity: 0.45; cursor: not-allowed; transform: none; }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-2);
+  border-color: var(--border-dark);
+  box-shadow: none;
+}
+.btn-ghost:hover {
+  background: var(--paper-2);
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.btn-danger {
+  background: transparent;
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.btn-danger:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.btn-accent {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+.btn-accent:hover { background: #a30d25; border-color: #a30d25; }
+
+/* ── Badges / Labels ────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 2px;
+  background: var(--paper-2);
+  border: 1px solid var(--border-dark);
+  color: var(--text-muted);
+}
+.badge-accent {
+  background: var(--accent-muted);
+  border-color: var(--border-accent);
+  color: var(--accent);
+}
+
+/* ── Error ──────────────────────────────────────────────────── */
+.error {
+  padding: 10px 14px;
+  border-radius: var(--r-md);
+  background: rgba(200, 16, 46, 0.07);
+  border: 1px solid rgba(200, 16, 46, 0.25);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+/* ── Stack / Row ────────────────────────────────────────────── */
+.stack { display: grid; gap: var(--s-3); }
+.row { display: flex; gap: var(--s-4); }
+.col { flex: 1; }
+
+/* ── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--paper-2); }
+::-webkit-scrollbar-thumb { background: var(--border-dark); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ── Mobile ─────────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .container { padding: var(--s-5) var(--s-4); }
+  .row { flex-direction: column; }
+}

@@ -1,0 +1,29 @@
+.edit-profile-page {
+  padding-bottom: var(--s-8);
+}
+
+.edit-card {
+  padding: var(--s-6);
+  max-width: 760px;
+}
+
+.rule-accent-sm {
+  height: 2px;
+  width: 32px;
+  background: var(--accent);
+  margin: var(--s-2) 0 var(--s-3);
+}
+
+.edit-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.05;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: var(--s-5);
+}

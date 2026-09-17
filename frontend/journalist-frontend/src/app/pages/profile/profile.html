@@ -1,0 +1,82 @@
+<div class="profile-page" *ngIf="!loading && profile; else loadingTpl">
+  <section class="profile-hero surface">
+    <div class="profile-top">
+      <div class="profile-avatar-wrap">
+        <img *ngIf="profile.avatarUrl; else initialsAvatar" [src]="profile.avatarUrl" [alt]="profile.name" class="profile-avatar-img" />
+        <ng-template #initialsAvatar>
+          <div class="profile-avatar">{{ (profile.name || 'U')[0].toUpperCase() }}</div>
+        </ng-template>
+      </div>
+
+      <div class="profile-main">
+        <div class="t-subhead">Journalist Profile</div>
+        <div class="rule-accent-sm"></div>
+        <h1 class="profile-name">{{ profile.name }}</h1>
+        <div class="profile-meta t-byline">
+          <span>{{ profile.email }}</span>
+          <span *ngIf="profile.location">· {{ profile.location }}</span>
+          <span *ngIf="profile.postsCount !== undefined">· {{ profile.postsCount }} posts</span>
+        </div>
+
+        <p class="profile-bio" *ngIf="profile.bio">{{ profile.bio }}</p>
+
+        <a
+          *ngIf="profile.website"
+          class="profile-link"
+          [href]="profile.website"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{ profile.website }}
+        </a>
+
+        <div class="profile-actions">
+          <button *ngIf="isMe()" class="btn btn-accent" type="button" (click)="goEdit()">Edit profile</button>
+          <a *ngIf="!isMe()" class="btn btn-ghost" [routerLink]="['/messages']">Message</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="profile-posts">
+    <div class="section-head">
+      <div class="t-subhead">Recent Dispatches</div>
+      <div class="rule-accent-sm"></div>
+    </div>
+
+    <div class="feed-status" *ngIf="posts.length === 0">
+      <span class="t-byline">No posts yet.</span>
+    </div>
+
+    <div class="posts-list" *ngIf="posts.length > 0">
+      <article *ngFor="let p of posts" class="post surface">
+        <div class="post-meta">
+          <div class="post-author-row">
+            <ng-container *ngIf="profile.avatarUrl; else profilePostInitialAvatar">
+  <img [src]="profile.avatarUrl" [alt]="profile.name" class="post-avatar-img" />
+</ng-container>
+<ng-template #profilePostInitialAvatar>
+  <div class="post-avatar">{{ (profile.name || 'U')[0].toUpperCase() }}</div>
+</ng-template>
+            <div class="post-author-info">
+              <span class="post-author-name">{{ profile.name }}</span>
+              <span class="post-dot">·</span>
+              <span class="post-time t-byline">{{ p.createdAt | date: 'MMM d, y · h:mm a' }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-rule"></div>
+        <p class="post-content">{{ p.content }}</p>
+      </article>
+    </div>
+  </section>
+</div>
+
+<ng-template #loadingTpl>
+  <div class="feed-status" *ngIf="loading">
+    <span class="t-byline">Loading profile…</span>
+  </div>
+
+  <div class="error" *ngIf="error">{{ error }}</div>
+</ng-template>

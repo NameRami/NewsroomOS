@@ -1,0 +1,61 @@
+<!-- app.html — Main app shell with editorial masthead -->
+<div class="app-shell">
+
+  <header class="masthead">
+    <div class="masthead-inner">
+
+      <!-- Top stripe: date + edition label -->
+      <div class="masthead-meta">
+        <span class="t-byline">Secure edition · members only</span>
+        <div class="masthead-meta-right">
+          <span class="badge">🔒 Encrypted</span>
+        </div>
+      </div>
+
+      <div class="masthead-rule"></div>
+
+      <!-- Main brand row -->
+      <div class="masthead-main">
+        <div class="brand">
+          <div class="brand-mark">JS</div>
+          <div class="brand-text">
+            <div class="brand-name">The Journalist</div>
+            <div class="brand-tagline">private newsroom network</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a routerLink="/global-live" routerLinkActive="active" class="nav-link">
+  <span class="nav-icon">▣</span>
+  Global Live
+</a>
+          <a routerLink="/feed" routerLinkActive="active" class="nav-link">
+            <span class="nav-icon">◈</span>
+            Feed
+          </a>
+          <a routerLink="/messages" routerLinkActive="active" class="nav-link">
+            <span class="nav-icon">◉</span>
+            Messages
+          </a>
+          <a routerLink="/me/edit" routerLinkActive="active" class="nav-link">
+            <span class="nav-icon">◆</span>
+            Edit Profile
+          </a>
+        </nav>
+      </div>
+
+      <div class="masthead-rule-thick"></div>
+    </div>
+  </header>
+
+  <main class="container app-main">
+  <router-outlet></router-outlet>
+</main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="t-byline">© The Journalist Social · Private network · All rights reserved</span>
+    </div>
+  </footer>
+
+</div>

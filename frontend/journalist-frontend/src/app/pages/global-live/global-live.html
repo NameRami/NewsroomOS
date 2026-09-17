@@ -1,0 +1,160 @@
+<div class="global-live-page">
+  <div class="live-hero">
+    <div class="live-hero__bg"></div>
+
+    <div class="live-masthead">
+      <div>
+        <div class="t-subhead live-kicker">Broadcast desk</div>
+        <div class="rule-accent-sm"></div>
+        <h1 class="live-title">Global Live</h1>
+        <p class="live-intro">
+          A real-time newsroom monitor for tracking international TV feeds,
+          breaking coverage, and parallel live events.
+        </p>
+      </div>
+
+      <div class="live-actions">
+        <button
+          class="btn"
+          [class.btn-accent]="currentLayout === 1"
+          [class.btn-ghost]="currentLayout !== 1"
+          type="button"
+          (click)="setLayout(1)"
+        >
+          1 View
+        </button>
+
+        <button
+          class="btn"
+          [class.btn-accent]="currentLayout === 4"
+          [class.btn-ghost]="currentLayout !== 4"
+          type="button"
+          (click)="setLayout(4)"
+        >
+          4 View
+        </button>
+      </div>
+    </div>
+
+    <div class="live-layout">
+      <aside class="live-sidebar">
+        <div class="sidebar-head">
+          <div>
+            <div class="t-subhead">Channel index</div>
+            <div class="sidebar-sub">Live news sources</div>
+          </div>
+          <div class="sidebar-count">{{ filteredChannels.length }}</div>
+        </div>
+
+        <div class="sidebar-search">
+          <label for="live-search">Search channels</label>
+          <input
+            id="live-search"
+            class="input live-input"
+            [(ngModel)]="search"
+            (input)="onSearchChange()"
+            placeholder="Search by channel or country..."
+          />
+        </div>
+
+        <div class="error" *ngIf="error">{{ error }}</div>
+
+        <div class="loading-state" *ngIf="loading">
+          <span class="t-byline">Loading live feeds…</span>
+        </div>
+
+        <div class="channel-list" *ngIf="!loading">
+          <button
+            class="channel-card"
+            *ngFor="let ch of filteredChannels; trackBy: trackByChannel"
+            type="button"
+            (click)="playChannel(ch)"
+          >
+            <div class="channel-logo-wrap">
+              <img
+                *ngIf="ch.logo; else fallbackLogo"
+                [src]="ch.logo"
+                [alt]="ch.name"
+                class="channel-logo"
+              />
+              <ng-template #fallbackLogo>
+                <div class="channel-fallback">TV</div>
+              </ng-template>
+            </div>
+
+            <div class="channel-copy">
+              <div class="channel-name">{{ ch.name }}</div>
+              <div class="channel-meta">{{ ch.country || 'International feed' }}</div>
+            </div>
+          </button>
+        </div>
+      </aside>
+
+      <section class="live-stage">
+        <div class="stage-head">
+          <div class="stage-label">
+            <span class="badge badge-accent">Live monitor</span>
+            <span class="stage-text">Active panel: {{ activePlayer + 1 }}</span>
+          </div>
+
+          <div class="stage-help">
+            Click a panel, then choose a channel from the left.
+          </div>
+        </div>
+
+        <div class="players-grid" [class.players-grid--quad]="currentLayout === 4">
+          <article
+            class="player-shell"
+            *ngFor="let slot of players; let i = index"
+            [class.player-shell--active]="activePlayer === i"
+            (click)="selectPlayer(i)"
+          >
+            <div class="player-topbar">
+              <div class="player-topbar-left">
+                <span class="player-pill">Panel {{ i + 1 }}</span>
+                <span class="player-name">
+                  {{ slot.channel?.name || 'No channel selected' }}
+                </span>
+              </div>
+
+              <button
+                *ngIf="slot.channel"
+                class="btn btn-ghost player-clear"
+                type="button"
+                (click)="clearSlot(i); $event.stopPropagation()"
+              >
+                Clear
+              </button>
+            </div>
+
+            <div class="player-frame">
+              <video
+                #videoRef
+                controls
+                playsinline
+                muted
+                [attr.data-index]="i"
+              ></video>
+
+              <div class="player-empty" *ngIf="!slot.channel">
+                <div class="player-empty-mark">▣</div>
+                <div class="player-empty-title">Awaiting feed</div>
+                <div class="player-empty-sub">
+                  Select this panel, then choose a channel.
+                </div>
+              </div>
+
+              <style>
+                .app-shell[_ngcontent-ng-c3535250466] { 
+    background: radial-gradient(circle at top center, rgba(200, 16, 46, 0.16), transparent 28%), linear-gradient(180deg, #111111 0%, #090909 45%, #050505 100%);
+}
+              </style>
+            </div>
+
+            <ng-container *ngIf="registerVideo(videoRef, i)"></ng-container>
+          </article>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

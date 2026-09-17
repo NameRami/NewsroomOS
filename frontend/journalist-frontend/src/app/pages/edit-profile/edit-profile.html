@@ -1,0 +1,49 @@
+<div class="edit-profile-page" *ngIf="!loading; else loadingTpl">
+  <section class="surface edit-card">
+    <div class="t-subhead">Account settings</div>
+    <div class="rule-accent-sm"></div>
+    <h1 class="edit-title">Edit Profile</h1>
+
+    <div class="stack" style="margin-top: var(--s-5);">
+      <div>
+        <label>Full name</label>
+        <input class="input" [(ngModel)]="name" maxlength="120" />
+      </div>
+
+      <div>
+        <label>Bio</label>
+        <textarea [(ngModel)]="bio" rows="5" maxlength="500"></textarea>
+      </div>
+
+      <div>
+        <label>Avatar image URL</label>
+        <input class="input" [(ngModel)]="avatarUrl" placeholder="https://..." />
+      </div>
+
+      <div>
+        <label>Location</label>
+        <input class="input" [(ngModel)]="location" maxlength="120" />
+      </div>
+
+      <div>
+        <label>Website</label>
+        <input class="input" [(ngModel)]="website" placeholder="https://your-site.com" />
+      </div>
+    </div>
+
+    <div class="error" *ngIf="error" style="margin-top: var(--s-4);">{{ error }}</div>
+
+    <div class="edit-actions">
+      <a class="btn btn-ghost" [routerLink]="['/feed']">Cancel</a>
+      <button class="btn btn-accent" type="button" (click)="save()" [disabled]="saving || !name.trim()">
+        {{ saving ? 'Saving…' : 'Save profile' }}
+      </button>
+    </div>
+  </section>
+</div>
+
+<ng-template #loadingTpl>
+  <div class="feed-status">
+    <span class="t-byline">Loading your profile…</span>
+  </div>
+</ng-template>

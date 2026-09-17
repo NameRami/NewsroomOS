@@ -1,0 +1,144 @@
+.profile-page {
+  display: grid;
+  gap: var(--s-6);
+  padding-bottom: var(--s-8);
+}
+
+.profile-hero {
+  padding: var(--s-6);
+}
+
+.profile-top {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: var(--s-5);
+  align-items: start;
+}
+
+.profile-avatar,
+.profile-avatar-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 6px;
+}
+
+.profile-avatar {
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 900;
+}
+
+.profile-avatar-img {
+  object-fit: cover;
+  border: 1px solid var(--border-dark);
+}
+
+.rule-accent-sm {
+  height: 2px;
+  width: 32px;
+  background: var(--accent);
+  margin: var(--s-2) 0 var(--s-3);
+}
+
+.profile-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.05;
+}
+
+.profile-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.profile-bio {
+  margin: var(--s-4) 0 0;
+  font-size: 18px;
+}
+
+.profile-link {
+  display: inline-block;
+  margin-top: var(--s-3);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.profile-actions {
+  margin-top: var(--s-4);
+  display: flex;
+  gap: 10px;
+}
+
+.posts-list {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--border-dark);
+}
+
+.post {
+  padding: var(--s-5) 0;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  box-shadow: none;
+  background: transparent;
+}
+
+.post-meta,
+.post-author-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.post-meta {
+  justify-content: space-between;
+  margin-bottom: var(--s-3);
+}
+
+.post-avatar {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 2px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.post-author-name {
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.post-rule {
+  height: 1px;
+  background: var(--border);
+  margin-bottom: var(--s-3);
+}
+
+.post-content {
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .profile-top {
+    grid-template-columns: 1fr;
+  }
+}
+.post-avatar-img {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  display: block;
+  border-radius: 2px;
+  border: 1px solid var(--border-dark);
+}
