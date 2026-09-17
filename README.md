@@ -1,37 +1,37 @@
 # 📰 NewsroomOS
 
-> **Centralized digital workspace for modern journalists — monitor, collaborate, analyze, publish, and follow live information from one platform.**
+> **Centralized digital workspace for modern journalists — monitor, collaborate, analyze, publish and follow live information from one platform.**
 
-**NewsroomOS** is a full-stack web platform designed as a **centralized workstation for journalists and newsroom teams**.
+**NewsroomOS** est une plateforme web full-stack conçue comme un **poste de travail centralisé pour les journalistes et les équipes de rédaction**.
 
-The main goal of NewsroomOS is to reduce the fragmentation of tools used daily in a newsroom by bringing multiple essential features together into a single interface.
+L'objectif principal de NewsroomOS est de réduire la fragmentation des outils utilisés quotidiennement dans une newsroom en regroupant plusieurs fonctionnalités essentielles dans une seule interface.
 
-The platform allows users to:
+La plateforme permet notamment de :
 
-* 📰 view and manage journalistic content;
-* 📺 monitor multiple streams through a **TV Wall**;
-* 🤖 use artificial intelligence-based tools;
-* ✍️ create and manage publications;
-* 💬 communicate with other newsroom members;
-* 👤 manage users and profiles;
-* 🌍 follow live content and information;
-* 🔐 secure access to different features;
-* ⚡ centralize the tools required for journalistic work.
+- 📰 consulter et gérer des contenus journalistiques ;
+- 📺 surveiller plusieurs flux grâce à un **TV Wall** ;
+- 🤖 utiliser des outils basés sur l'intelligence artificielle ;
+- ✍️ créer et gérer des publications ;
+- 💬 communiquer avec les autres membres de la rédaction ;
+- 👤 gérer les utilisateurs et leurs profils ;
+- 🌍 suivre des contenus et informations en direct ;
+- 🔐 sécuriser l'accès aux différentes fonctionnalités ;
+- ⚡ centraliser les outils nécessaires au travail journalistique.
 
-NewsroomOS is designed as a true **Newsroom Operating Workspace**: a unified environment where journalists can monitor information, collaborate, analyze content, and work more efficiently.
+NewsroomOS est donc pensé comme un véritable **Newsroom Operating Workspace** : un environnement unique permettant aux journalistes de surveiller l'information, collaborer, analyser du contenu et travailler plus efficacement.
 
-The project is built around a clearly separated architecture:
+Le projet repose sur une architecture séparant clairement :
 
-* **Angular** for the frontend;
-* **Node.js / Express** for the backend;
-* **MongoDB / Mongoose** for the database;
-* **JWT / bcrypt** for authentication and security;
-* **GitHub Actions** for continuous integration;
-* integrated **AI-powered features** inside the workspace.
+- **Angular** pour le frontend ;
+- **Node.js / Express** pour le backend ;
+- **MongoDB / Mongoose** pour la base de données ;
+- **JWT / bcrypt** pour l'authentification et la sécurité ;
+- **GitHub Actions** pour l'intégration continue ;
+- des **fonctionnalités IA** intégrées au workspace.
 
 ---
 
-# 📸 Application Preview
+# 📸 Aperçu de l'application
 
 ## 🔐 Login
 
@@ -39,9 +39,9 @@ The project is built around a clearly separated architecture:
   <img src="docs/screenshots/login.png" alt="NewsroomOS Login" width="900">
 </p>
 
-The login screen allows authorized users to securely access their NewsroomOS environment.
+L'écran de connexion permet aux utilisateurs autorisés d'accéder de manière sécurisée à leur environnement NewsroomOS.
 
-Authentication is based on JWT tokens used to secure communication between the Angular frontend and the backend API.
+L'authentification repose sur un système de tokens JWT utilisés pour sécuriser les communications entre le frontend Angular et l'API backend.
 
 ---
 
@@ -51,7 +51,7 @@ Authentication is based on JWT tokens used to secure communication between the A
   <img src="docs/screenshots/signup.png" alt="NewsroomOS Signup" width="900">
 </p>
 
-The signup interface allows new users to create an account and access the features available on the platform.
+L'interface d'inscription permet aux nouveaux utilisateurs de créer un compte afin d'accéder aux fonctionnalités disponibles sur la plateforme.
 
 ---
 
@@ -61,9 +61,9 @@ The signup interface allows new users to create an account and access the featur
   <img src="docs/screenshots/feed.png" alt="NewsroomOS News Feed" width="900">
 </p>
 
-The **News Feed** is one of the central areas of NewsroomOS.
+Le **News Feed** constitue l'un des espaces centraux de NewsroomOS.
 
-It allows users to browse available publications and centralize journalistic content directly inside the workspace.
+Il permet de consulter les publications disponibles et de centraliser les contenus journalistiques directement dans le workspace.
 
 ---
 
@@ -73,11 +73,11 @@ It allows users to browse available publications and centralize journalistic con
   <img src="docs/screenshots/live-tv.png" alt="NewsroomOS TV Wall" width="900">
 </p>
 
-The **TV Wall** allows users to monitor multiple video sources or live content streams from a centralized interface.
+Le **TV Wall** permet de suivre plusieurs contenus ou sources vidéo depuis une interface centralisée.
 
-This feature is particularly useful in a newsroom environment where several information sources may need to be monitored simultaneously.
+Cette fonctionnalité est particulièrement adaptée à une rédaction où plusieurs sources d'information doivent être surveillées simultanément.
 
-The TV Wall helps transform NewsroomOS into a true **journalistic monitoring center**.
+Le TV Wall contribue à transformer NewsroomOS en véritable **centre de monitoring journalistique**.
 
 ---
 
@@ -87,13 +87,13 @@ The TV Wall helps transform NewsroomOS into a true **journalistic monitoring cen
   <img src="docs/screenshots/messages.png" alt="NewsroomOS Messaging" width="900">
 </p>
 
-The internal messaging system allows users to communicate directly from NewsroomOS without leaving their working environment.
+La messagerie interne permet aux utilisateurs de communiquer directement depuis NewsroomOS sans quitter leur environnement de travail.
 
 ---
 
-# 🎯 NewsroomOS Concept
+# 🎯 Concept NewsroomOS
 
-NewsroomOS is designed as a centralized system that brings together multiple components of a modern newsroom.
+NewsroomOS est conçu comme un système centralisé regroupant plusieurs composants d'une newsroom moderne.
 
 ```text
                              ┌─────────────────────────────┐
@@ -125,110 +125,110 @@ NewsroomOS is designed as a centralized system that brings together multiple com
                                       └──────────────────┘
 ```
 
-The idea is to provide an environment where journalists can remain connected to their main sources, monitor information, use AI tools, communicate with their team, and manage content from a single application.
+L'idée est de proposer un environnement dans lequel un journaliste peut rester connecté à ses principales sources, surveiller les informations, utiliser des outils IA, communiquer avec son équipe et gérer ses contenus depuis une seule application.
 
 ---
 
-# ✨ Features
+# ✨ Fonctionnalités
 
-## 🔐 Authentication & Security
+## 🔐 Authentification & sécurité
 
-* User registration
-* Secure login
-* JWT-based authentication
-* Password hashing with bcrypt
-* Backend route protection
-* Authentication middleware
-* Frontend token management
-* Angular Route Guards
-* Angular HTTP Interceptor
-* Environment variables for sensitive data
-* `.env` file excluded from the repository
+- Inscription des utilisateurs
+- Connexion sécurisée
+- Authentification basée sur JWT
+- Hashage des mots de passe avec bcrypt
+- Protection des routes backend
+- Middleware d'authentification
+- Gestion du token côté frontend
+- Angular Route Guards
+- HTTP Interceptor Angular
+- Variables d'environnement pour les données sensibles
+- Exclusion du fichier `.env` du repository
 
 ---
 
-## 📰 News Feed & Publications
+## 📰 News Feed & publications
 
-* Create publications
-* Browse publications
-* Manage journalistic content
-* Centralized news feed
-* Interact with content
-* Manage data through the REST API
+- Création de publications
+- Consultation des publications
+- Gestion des contenus journalistiques
+- Fil d'actualité centralisé
+- Interaction avec les contenus
+- Gestion des données depuis l'API REST
 
 ---
 
 ## 📺 TV Wall
 
-The **TV Wall** centralizes the monitoring of live content.
+Le **TV Wall** permet de centraliser la surveillance de contenus en direct.
 
-It is one of the main components of NewsroomOS and introduces a **live monitoring** capability into the journalist's workspace.
+Il représente l'un des éléments principaux de NewsroomOS et permet d'intégrer la dimension **live monitoring** dans le poste de travail du journaliste.
 
-### Objectives
+### Objectifs
 
-* Centralize multiple streams
-* Reduce the need to use multiple windows
-* Simplify live content monitoring
-* Provide a global overview from a single dashboard
-* Improve newsroom team responsiveness
-
----
-
-## 🤖 Artificial Intelligence
-
-NewsroomOS also integrates artificial intelligence-based features designed to assist journalistic work.
-
-Depending on the tools available in the workspace, AI can support tasks such as:
-
-* content analysis;
-* text summarization;
-* writing assistance;
-* rephrasing;
-* information extraction;
-* content processing;
-* research assistance;
-* rapid information organization.
-
-The goal is not to replace journalists, but to provide tools capable of accelerating repetitive or analytical tasks.
+- Centraliser plusieurs flux
+- Réduire le besoin d'utiliser plusieurs fenêtres
+- Faciliter la surveillance de contenus en direct
+- Donner une vision globale depuis un seul dashboard
+- Améliorer la réactivité d'une équipe de rédaction
 
 ---
 
-## 💬 Messaging
+## 🤖 Intelligence Artificielle
 
-* Communication between users
-* Message management
-* Dedicated REST API
-* Protected routes
-* Direct integration into the workspace
+NewsroomOS intègre également des fonctionnalités basées sur l'intelligence artificielle afin d'assister le travail journalistique.
+
+Selon les fonctionnalités disponibles dans le workspace, l'IA peut être utilisée pour accompagner différentes tâches telles que :
+
+- analyse de contenu ;
+- résumé de textes ;
+- assistance à la rédaction ;
+- reformulation ;
+- extraction d'informations ;
+- traitement de contenus ;
+- aide à la recherche ;
+- organisation rapide de l'information.
+
+L'objectif n'est pas de remplacer le journaliste, mais de proposer des outils capables d'accélérer certaines tâches répétitives ou analytiques.
 
 ---
 
-## 👤 User Management
+## 💬 Messagerie
 
-* View user profiles
-* Edit user information
-* Profile management
-* Protection of routes requiring authentication
-* Identification of connected users
+- Communication entre utilisateurs
+- Gestion des messages
+- API REST dédiée
+- Routes protégées
+- Intégration directement dans le workspace
 
 ---
 
-## 🌍 Live / News
+## 👤 Gestion des utilisateurs
 
-* Dedicated interface for live content
-* Centralized information
-* Integration with the NewsroomOS environment
-* Navigation from the main workspace
+- Consultation du profil utilisateur
+- Modification des informations
+- Gestion du profil
+- Protection des routes nécessitant une authentification
+- Identification des utilisateurs connectés
+
+---
+
+## 🌍 Live / Actualités
+
+- Interface dédiée aux contenus en direct
+- Centralisation des informations
+- Intégration avec l'environnement NewsroomOS
+- Navigation depuis le workspace principal
 
 ---
 
 # 🏗️ Architecture
 
-NewsroomOS uses a **Frontend / Backend / Database** architecture.
+NewsroomOS utilise une architecture **Frontend / Backend / Database**.
 
 ```text
                          ┌──────────────────────┐
-                         │         User         │
+                         │      Utilisateur     │
                          │      Web Browser     │
                          └──────────┬───────────┘
                                     │
@@ -277,7 +277,7 @@ NewsroomOS uses a **Frontend / Backend / Database** architecture.
 
 ---
 
-# 📁 Project Structure
+# 📁 Structure du projet
 
 ```text
 NewsroomOS/
@@ -343,57 +343,57 @@ NewsroomOS/
 
 ---
 
-# 🛠️ Tech Stack
+# 🛠️ Stack technique
 
 ## Frontend
 
-* **Angular**
-* **TypeScript**
-* HTML5
-* SCSS
-* Angular Router
-* Angular Services
-* Angular HTTP Client
-* Angular Route Guards
-* HTTP Interceptors
+- **Angular**
+- **TypeScript**
+- HTML5
+- SCSS
+- Angular Router
+- Angular Services
+- Angular HTTP Client
+- Angular Route Guards
+- HTTP Interceptors
 
 ---
 
 ## Backend
 
-* **Node.js**
-* **Express.js**
-* JavaScript
-* REST API
-* JWT
-* bcrypt
-* dotenv
+- **Node.js**
+- **Express.js**
+- JavaScript
+- REST API
+- JWT
+- bcrypt
+- dotenv
 
 ---
 
 ## Database
 
-* **MongoDB**
-* **Mongoose**
+- **MongoDB**
+- **Mongoose**
 
 ---
 
 ## DevOps & Version Control
 
-* **Git**
-* **GitHub**
-* **GitHub Actions**
-* npm
-* Continuous Integration
+- **Git**
+- **GitHub**
+- **GitHub Actions**
+- npm
+- Continuous Integration
 
 ---
 
-# 🔄 General Workflow
+# 🔄 Fonctionnement général
 
-The main NewsroomOS workflow follows this process:
+Le fonctionnement principal de NewsroomOS suit le flux suivant :
 
 ```text
-User
+Utilisateur
     │
     ▼
 NewsroomOS Frontend
@@ -425,20 +425,20 @@ Response
 Angular Frontend
     │
     ▼
-NewsroomOS Interface
+Interface NewsroomOS
     │
     ▼
-User
+Utilisateur
 ```
 
 ---
 
-# 🔑 Authentication
+# 🔑 Authentification
 
-When a user logs in, the authentication system follows this process:
+Lorsqu'un utilisateur se connecte, le système d'authentification suit le processus suivant :
 
 ```text
-User
+Utilisateur
     │
     ▼
 Login Form
@@ -451,19 +451,19 @@ Angular
 Express API
     │
     ▼
-Credential Verification
+Vérification des identifiants
     │
     ▼
 bcrypt
     │
     ▼
-JWT Generated
+JWT généré
     │
     ▼
-Angular Receives Token
+Angular reçoit le token
     │
     ▼
-Token Storage / Management
+Stockage / gestion du token
     │
     ▼
 HTTP Interceptor
@@ -472,25 +472,25 @@ HTTP Interceptor
 Authorization: Bearer <token>
     │
     ▼
-Authentication Middleware
+Middleware Auth
     │
     ▼
-Protected Route
+Route protégée
 ```
 
-The authentication middleware verifies the JWT before granting access to protected resources.
+Le middleware d'authentification vérifie le JWT avant d'autoriser l'accès aux ressources protégées.
 
 ---
 
-# 🔐 Security
+# 🔐 Sécurité
 
-Security is based on several mechanisms.
+La sécurité repose sur plusieurs mécanismes.
 
-## Password Management
+## Gestion des mots de passe
 
-Passwords are not stored directly.
+Les mots de passe ne sont pas stockés directement.
 
-They are hashed using:
+Ils sont hashés avec :
 
 ```text
 bcrypt
@@ -500,9 +500,9 @@ bcrypt
 
 ## JSON Web Token
 
-After successful authentication, the backend generates a JWT token.
+Après une authentification valide, le backend génère un token JWT.
 
-The token is then used for requests sent to protected routes.
+Le token est ensuite utilisé pour les requêtes vers les routes protégées.
 
 ```text
 Client
@@ -511,24 +511,24 @@ Client
   ▼
 Express Middleware
   │
-  ├── Valid Token
+  ├── Token valide
   │       │
   │       ▼
-  │   Route Authorized
+  │   Route autorisée
   │
-  └── Invalid Token
+  └── Token invalide
           │
           ▼
-      Access Denied
+      Access denied
 ```
 
 ---
 
-# 🌱 Environment Variables
+# 🌱 Variables d'environnement
 
-Sensitive information is stored inside a `.env` file.
+Les informations sensibles sont stockées dans un fichier `.env`.
 
-Example:
+Exemple :
 
 ```env
 PORT=5000
@@ -536,9 +536,9 @@ MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secure_jwt_secret
 ```
 
-The `.env` file must never be committed to the repository.
+Le fichier `.env` ne doit jamais être ajouté au repository.
 
-Example `.gitignore`:
+Exemple de `.gitignore` :
 
 ```gitignore
 # Dependencies
@@ -560,30 +560,30 @@ dist/
 Thumbs.db
 ```
 
-> ⚠️ Real values for `MONGO_URI`, `JWT_SECRET`, API keys, and other secrets must remain private.
+> ⚠️ Les vraies valeurs de `MONGO_URI`, `JWT_SECRET`, clés API et autres secrets doivent rester privées.
 
 ---
 
-# 📡 REST API
+# 📡 API REST
 
-The backend exposes several groups of REST routes.
+Le backend expose plusieurs groupes de routes REST.
 
-| Domain         | Route         | Description            |
-| -------------- | ------------- | ---------------------- |
-| Authentication | `/auth/*`     | Registration and login |
-| Users          | `/users/*`    | User management        |
-| Posts          | `/posts/*`    | Publication management |
-| Messages       | `/messages/*` | Message management     |
+| Domaine | Route | Description |
+|---|---|---|
+| Authentication | `/auth/*` | Inscription et connexion |
+| Users | `/users/*` | Gestion des utilisateurs |
+| Posts | `/posts/*` | Gestion des publications |
+| Messages | `/messages/*` | Gestion des messages |
 
-Endpoints may evolve as NewsroomOS continues to develop.
+Les endpoints peuvent évoluer au fur et à mesure du développement de NewsroomOS.
 
 ---
 
 # 🔄 Continuous Integration — CI
 
-NewsroomOS uses **GitHub Actions** to automate project verification.
+NewsroomOS utilise **GitHub Actions** pour automatiser les vérifications du projet.
 
-The CI workflow runs automatically when configured repository events occur.
+Le workflow CI est exécuté automatiquement lors des événements configurés dans le repository.
 
 ```text
 Developer
@@ -595,67 +595,67 @@ GitHub Repository
     ▼
 GitHub Actions
     │
-    ├── Checkout Repository
+    ├── Checkout repository
     │
     ├── Setup Node.js
     │
-    ├── Install Dependencies
+    ├── Install dependencies
     │
-    ├── Run Checks
+    ├── Run checks
     │
-    ├── Run Tests
+    ├── Run tests
     │
-    └── Build Project
+    └── Build project
     │
     ▼
 CI Validation
 ```
 
-## CI Objectives
+## Objectifs de la CI
 
-* Automate project verification
-* Verify dependency installation
-* Detect errors quickly
-* Run available tests
-* Verify that the frontend can be compiled
-* Reduce errors before integration
-* Improve project quality
+- Automatiser les vérifications
+- Vérifier l'installation des dépendances
+- Détecter rapidement les erreurs
+- Exécuter les tests disponibles
+- Vérifier que le frontend peut être compilé
+- Réduire les erreurs avant intégration
+- Améliorer la qualité du projet
 
 ---
 
-# 🧪 Testing
+# 🧪 Tests
 
-The Angular frontend contains a dedicated testing configuration.
+Le frontend Angular contient une configuration dédiée aux tests.
 
-To run tests:
+Pour exécuter les tests :
 
 ```bash
 npm test
 ```
 
-or:
+ou :
 
 ```bash
 ng test
 ```
 
-Tests can also be executed automatically through GitHub Actions.
+Les tests peuvent également être exécutés automatiquement depuis GitHub Actions.
 
 ---
 
 # 🚀 Installation
 
-## Prerequisites
+## Prérequis
 
-Install the following tools:
+Installer les outils suivants :
 
-* Node.js
-* npm
-* MongoDB
-* Git
-* Angular CLI if required
+- Node.js
+- npm
+- MongoDB
+- Git
+- Angular CLI si nécessaire
 
-Check installed versions:
+Vérifier les versions :
 
 ```bash
 node --version
@@ -665,13 +665,13 @@ git --version
 
 ---
 
-# 📥 Clone NewsroomOS
+# 📥 Cloner NewsroomOS
 
 ```bash
 git clone https://github.com/NameRami/NewsroomOS.git
 ```
 
-Then:
+Puis :
 
 ```bash
 cd NewsroomOS
@@ -679,27 +679,27 @@ cd NewsroomOS
 
 ---
 
-# ⚙️ Backend Configuration
+# ⚙️ Configuration du backend
 
-Enter the backend directory:
+Entrer dans le dossier backend :
 
 ```bash
 cd backend
 ```
 
-Install dependencies:
+Installer les dépendances :
 
 ```bash
 npm install
 ```
 
-Create a file named:
+Créer un fichier :
 
 ```text
 .env
 ```
 
-Add:
+Ajouter :
 
 ```env
 PORT=5000
@@ -707,13 +707,13 @@ MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secure_jwt_secret
 ```
 
-Start the backend:
+Démarrer le backend :
 
 ```bash
 npm start
 ```
 
-Server:
+Serveur :
 
 ```text
 http://localhost:5000
@@ -721,33 +721,33 @@ http://localhost:5000
 
 ---
 
-# 💻 Frontend Configuration
+# 💻 Configuration du frontend
 
-In another terminal:
+Dans un autre terminal :
 
 ```bash
 cd frontend/journalist-frontend
 ```
 
-Install dependencies:
+Installer les dépendances :
 
 ```bash
 npm install
 ```
 
-Start Angular:
+Lancer Angular :
 
 ```bash
 npm start
 ```
 
-or:
+ou :
 
 ```bash
 ng serve
 ```
 
-Frontend:
+Frontend :
 
 ```text
 http://localhost:4200
@@ -755,7 +755,7 @@ http://localhost:4200
 
 ---
 
-# 🔄 Request Lifecycle
+# 🔄 Cycle d'une requête
 
 ```text
 ┌───────────────┐
@@ -805,9 +805,9 @@ http://localhost:4200
 
 ---
 
-# 🧠 AI Positioning
+# 🧠 Positionnement de l'IA
 
-Artificial intelligence is an important extension of the NewsroomOS concept.
+L'intelligence artificielle constitue une extension importante du concept NewsroomOS.
 
 ```text
                       ┌──────────────────────┐
@@ -835,42 +835,42 @@ Artificial intelligence is an important extension of the NewsroomOS concept.
                       Decision
 ```
 
-AI acts as an assistance layer integrated into the workspace, while final validation and editorial decisions remain under the journalist's control.
+L'IA agit comme une couche d'assistance intégrée au workspace, tandis que la validation finale et les décisions éditoriales restent sous le contrôle du journaliste.
 
 ---
 
-# 📊 Project Status
+# 📊 État du projet
 
-| Feature                       | Status |
-| ----------------------------- | ------ |
-| Frontend/backend architecture | ✅      |
-| Angular                       | ✅      |
-| Node.js / Express             | ✅      |
-| MongoDB / Mongoose            | ✅      |
-| Authentication                | ✅      |
-| JWT                           | ✅      |
-| bcrypt                        | ✅      |
-| User management               | ✅      |
-| Publications                  | ✅      |
-| News Feed                     | ✅      |
-| Messaging                     | ✅      |
-| User profile                  | ✅      |
-| TV Wall                       | ✅      |
-| AI features                   | ✅      |
-| Angular Guards                | ✅      |
-| HTTP Interceptors             | ✅      |
-| Environment variables         | ✅      |
-| Git / GitHub                  | ✅      |
-| GitHub Actions                | ✅      |
-| Continuous Integration        | ✅      |
-| Advanced testing              | 🚧     |
-| Complete API documentation    | 🚧     |
-| Docker                        | 🚧     |
-| Docker Compose                | 🚧     |
-| Continuous Deployment         | 🚧     |
-| Production deployment         | 🚧     |
-| Monitoring                    | 🚧     |
-| Structured logging            | 🚧     |
+| Fonctionnalité | État |
+|---|---|
+| Architecture frontend/backend | ✅ |
+| Angular | ✅ |
+| Node.js / Express | ✅ |
+| MongoDB / Mongoose | ✅ |
+| Authentification | ✅ |
+| JWT | ✅ |
+| bcrypt | ✅ |
+| Gestion utilisateurs | ✅ |
+| Publications | ✅ |
+| News Feed | ✅ |
+| Messagerie | ✅ |
+| Profil utilisateur | ✅ |
+| TV Wall | ✅ |
+| Fonctionnalités IA | ✅ |
+| Angular Guards | ✅ |
+| HTTP Interceptors | ✅ |
+| Variables d'environnement | ✅ |
+| Git / GitHub | ✅ |
+| GitHub Actions | ✅ |
+| Continuous Integration | ✅ |
+| Tests avancés | 🚧 |
+| Documentation API complète | 🚧 |
+| Docker | 🚧 |
+| Docker Compose | 🚧 |
+| Continuous Deployment | 🚧 |
+| Déploiement production | 🚧 |
+| Monitoring | 🚧 |
+| Logs structurés | 🚧 |
 
 ---
 
@@ -878,87 +878,87 @@ AI acts as an assistance layer integrated into the workspace, while final valida
 
 ## Phase 1 — Core Platform
 
-* [x] Frontend/backend architecture
-* [x] Angular
-* [x] Express API
-* [x] MongoDB
-* [x] Authentication
-* [x] User management
-* [x] Publications
-* [x] Messaging
-* [x] User profiles
+- [x] Architecture frontend/backend
+- [x] Angular
+- [x] Express API
+- [x] MongoDB
+- [x] Authentification
+- [x] Gestion utilisateurs
+- [x] Publications
+- [x] Messagerie
+- [x] Profils utilisateurs
 
 ---
 
 ## Phase 2 — Newsroom Workspace
 
-* [x] News Feed
-* [x] Live interface
-* [x] TV Wall
-* [x] Centralized tools
-* [x] Integrated messaging
-* [x] User workspace
+- [x] News Feed
+- [x] Live interface
+- [x] TV Wall
+- [x] Centralisation des outils
+- [x] Messagerie intégrée
+- [x] Workspace utilisateur
 
 ---
 
-## Phase 3 — Artificial Intelligence
+## Phase 3 — Intelligence Artificielle
 
-* [x] AI feature integration
-* [x] Integrated workspace assistance
-* [ ] Expand analysis tools
-* [ ] Advanced automatic summarization
-* [ ] Intelligent information extraction
-* [ ] Automatic content classification
-* [ ] AI-assisted research
-
----
-
-## Phase 4 — Quality & CI
-
-* [x] Git
-* [x] GitHub
-* [x] GitHub Actions
-* [x] CI pipeline
-* [x] Automated verification
-* [ ] Increase test coverage
-* [ ] Automated code quality analysis
-* [ ] Additional backend tests
+- [x] Intégration de fonctionnalités IA
+- [x] Assistance intégrée au workspace
+- [ ] Enrichissement des outils d'analyse
+- [ ] Résumé automatique avancé
+- [ ] Extraction intelligente d'informations
+- [ ] Classification automatique des contenus
+- [ ] Recherche assistée par IA
 
 ---
 
-## Phase 5 — Containerization
+## Phase 4 — Qualité & CI
 
-* [ ] Docker backend
-* [ ] Docker frontend
-* [ ] Docker Compose
-* [ ] Image optimization
-* [ ] Reproducible environment
+- [x] Git
+- [x] GitHub
+- [x] GitHub Actions
+- [x] Pipeline CI
+- [x] Automatisation des vérifications
+- [ ] Augmentation de la couverture des tests
+- [ ] Analyse automatique de qualité
+- [ ] Tests backend supplémentaires
+
+---
+
+## Phase 5 — Conteneurisation
+
+- [ ] Docker backend
+- [ ] Docker frontend
+- [ ] Docker Compose
+- [ ] Optimisation des images
+- [ ] Environnement reproductible
 
 ---
 
 ## Phase 6 — Deployment
 
-* [ ] Continuous Deployment
-* [ ] VPS / Cloud deployment
-* [ ] Staging environment
-* [ ] Production environment
-* [ ] Centralized secret management
+- [ ] Continuous Deployment
+- [ ] Déploiement VPS / Cloud
+- [ ] Staging environment
+- [ ] Production environment
+- [ ] Gestion centralisée des secrets
 
 ---
 
-## Phase 7 — Observability
+## Phase 7 — Observabilité
 
-* [ ] Structured logs
-* [ ] Monitoring
-* [ ] Metrics
-* [ ] Dashboards
-* [ ] Alerting
+- [ ] Logs structurés
+- [ ] Monitoring
+- [ ] Métriques
+- [ ] Dashboards
+- [ ] Alerting
 
 ---
 
-# 🎯 DevOps Vision
+# 🎯 Vision DevOps
 
-The long-term objective is to transform NewsroomOS into a platform with a complete DevOps pipeline.
+L'objectif à terme est de transformer NewsroomOS en une plateforme disposant d'une chaîne DevOps complète.
 
 ```text
                 ┌──────────────┐
@@ -987,7 +987,7 @@ The long-term objective is to transform NewsroomOS into a platform with a comple
                  └──────┬──────┘
                         │
                         ▼
-                  [ Coming Soon ]
+                  [ À venir ]
                         │
                ┌────────┴────────┐
                ▼                 ▼
@@ -995,13 +995,13 @@ The long-term objective is to transform NewsroomOS into a platform with a comple
                │                 │
                └────────┬────────┘
                         ▼
-                   Deployment
+                  Déploiement
                         │
                         ▼
                    Monitoring
 ```
 
-### Current Status
+### État actuel
 
 ```text
 Git
@@ -1039,7 +1039,7 @@ Monitoring
 
 ---
 
-# 🌐 Overall NewsroomOS Vision
+# 🌐 Vision globale de NewsroomOS
 
 ```text
                                NEWSROOMOS
@@ -1063,36 +1063,36 @@ Monitoring
                          └──────────────────┘
 ```
 
-The vision of NewsroomOS is to provide a single interface that brings together the essential tools required for the daily operation of a modern digital newsroom.
+La vision de NewsroomOS est de fournir une interface unique réunissant les outils essentiels au fonctionnement quotidien d'une rédaction numérique moderne.
 
 ---
 
-# 🤝 Contributing
+# 🤝 Contribution
 
-To contribute to the project:
+Pour contribuer au projet :
 
-1. Fork the repository
-2. Create a branch
-3. Make your changes
-4. Add or update tests
-5. Commit your changes
-6. Push the branch
-7. Create a Pull Request
+1. Forker le repository
+2. Créer une branche
+3. Effectuer les modifications
+4. Ajouter ou mettre à jour les tests
+5. Commit les changements
+6. Push la branche
+7. Créer une Pull Request
 
-Create a branch:
+Créer une branche :
 
 ```bash
 git checkout -b feature/new-feature
 ```
 
-Commit:
+Commit :
 
 ```bash
 git add .
 git commit -m "feat: add new feature"
 ```
 
-Push:
+Push :
 
 ```bash
 git push origin feature/new-feature
@@ -1100,13 +1100,13 @@ git push origin feature/new-feature
 
 ---
 
-# 👨‍💻 Author
+# 👨‍💻 Auteur
 
-**YOUR NAME**
+**Rami Tanazefti**
 
-Computer Engineering Student — **DevOps & MLOps**
+Élève ingénieur en informatique — **DevOps & MLOps**
 
-🇹🇳 Tunisia
+🇹🇳 Tunisie
 
 ### GitHub
 
@@ -1122,11 +1122,11 @@ https://github.com/NameRami/NewsroomOS
 
 ---
 
-# 📄 License
+# 📄 Licence
 
-NewsroomOS is currently being developed for **academic, experimental, and demonstration purposes**.
+NewsroomOS est actuellement développé dans un cadre **académique, expérimental et de démonstration**.
 
-An open-source license may be added later depending on the evolution of the project.
+Une licence open-source pourra être ajoutée ultérieurement selon l'évolution du projet.
 
 ---
 
