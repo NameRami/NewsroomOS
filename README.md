@@ -333,6 +333,9 @@ NewsroomOS/
 │       ├── tsconfig.json
 │       ├── tsconfig.app.json
 │       └── tsconfig.spec.json
+├── .github/
+│   └── workflows/
+│       └── ci.yml
 │
 ├── .gitignore
 └── README.md
