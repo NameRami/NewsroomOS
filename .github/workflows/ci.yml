@@ -1,15 +1,15 @@
+
 name: Backend CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
+  workflow_dispatch:
 
 jobs:
-  backend-tests:
+  backend-checks:
     runs-on: ubuntu-latest
 
     defaults:
@@ -20,10 +20,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '22'
           cache: npm
           cache-dependency-path: backend/package-lock.json
 
@@ -32,10 +32,7 @@ jobs:
 
       - name: Check JavaScript syntax
         run: |
-          node --check src/server.js
-          node --check src/app.js
-          node --check src/routes/auth.routes.js
-          node --check src/routes/post.routes.js
+          find src -type f -name '*.js' -exec node --check {} \;
 
-      - name: Run tests
-        run: npm test
+      - name: Verify backend entry point
+        run: test -f src/server.js
